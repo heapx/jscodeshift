@@ -52,7 +52,7 @@ describe('core API', function() {
 
   it('returns the source as is if nothing was modified', function () {
     var source = '\nvar foo;\n';
-    expect(core(source).toSource()).toEqual(source);
+    expect(core(source).toSource({lineTerminator:'\n'})).toEqual(source);
   });
 
 });

@@ -31,7 +31,7 @@ if(alert(bar)) {
       jscodeshift(input)
         .find('Identifier', {name: 'bar'})
         .replaceWith(path => expression`alert(${path.node})`)
-        .toSource()
+        .toSource({lineTerminator:'\n'})
     ).toEqual(expected);
   });
 
@@ -62,7 +62,7 @@ while (i < 10) {
               ${node.update}
             }`
         )
-        .toSource()
+        .toSource({lineTerminator:'\n'})
     ).toEqual(expected);
   });
 

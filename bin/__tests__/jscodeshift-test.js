@@ -25,8 +25,8 @@ require('es6-promise').polyfill();
 function run(args, stdin) {
   return new Promise(resolve => {
     var jscodeshift = child_process.spawn(
-      path.join(__dirname, '../jscodeshift.sh'),
-      args
+      'node',
+      [path.join(__dirname, '../jscodeshift.sh')].concat(args)
     );
     var stdout = '';
     var stderr = '';
